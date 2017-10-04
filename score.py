@@ -3,10 +3,10 @@ fileName = 'score.txt'
 f = open(fileName, 'r')
 wordList = f.readlines() #所有文本逐行读入列表wordList
 f.close()
-for i in range(len(wordList)): #把每行末尾的换行符剪掉
+for i in range(len(wordList)):
     if wordList[i][-1] == '\n':
         wordList[i] = wordList[i][:-1]
-titleList = wordList[0].split(',') #标题行特殊处理
+titleList = wordList[0].split(',') 
 wordList = wordList[1:] #数据list剪掉标题行
 sList = [] #二维list，存放每个分数
 for w in wordList: #遍历文本每一行
@@ -14,7 +14,7 @@ for w in wordList: #遍历文本每一行
     sN = [] #存放此人的多门成绩
     sN.append(wN[0]) #[0]是学号
     sN.append(wN[1]) #[1]是姓名
-    for i in range(2, len(wN)): #遍历此人多门成绩
+    for i in range(2, len(wN)): 
         sN.append(eval(wN[i])) #字符串转为数字，append入列表sN
     sList.append(sN) #sN数据append入大列表sList
 print(sList) 
